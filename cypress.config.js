@@ -3,6 +3,7 @@ const cucumber = require("cypress-cucumber-preprocessor").default;
 
 module.exports = defineConfig({
   e2e: {
+    baseUrl:"https://www.amazon.com/",
     specPattern: "**/*.feature",
     setupNodeEvents(on, config) {
       // implement node event listeners here

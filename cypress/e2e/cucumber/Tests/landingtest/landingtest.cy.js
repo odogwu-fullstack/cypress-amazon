@@ -20,17 +20,13 @@ And("Check The JETech checkbox", () => {
 // LandingPage.checkJETechBox();
 })
 And("Click on the Newest Arrivals option", () => {
-LandingPage.selectNewest();
+LandingPage.sortByNewestArrival();
 });
 And("Click on the Lowest Priced item", () => {
     LandingPage.selectLowestPricedItem();
 });
 And("Switch Window", () => {
-    cy.window().then(win => {
-        cy.location().then(loc=> {
-        win.open(loc.href, '_blank'); 
-        })
-      });
+    LandingPage.switchWindow();
 })
 Then("'About this Item' section should be present on the page", () => {
     LandingPage.confirmAboutItem();
