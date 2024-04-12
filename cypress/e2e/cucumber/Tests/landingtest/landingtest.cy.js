@@ -15,6 +15,8 @@ And("Click on the Tablet Accessories's link item", () => {
 LandingPage.clickTabletAccesoriesLinkItem();
 });
 And("Check The JETech checkbox", () => {
+    // This step is indeterminate as the JETtech checkbox does not always show when the page loads and this could stop the test
+    
 // LandingPage.checkJETechBox();
 })
 And("Click on the Newest Arrivals option", () => {
@@ -27,11 +29,6 @@ And("Switch Window", () => {
 
 })
 Then("'About this Item' section should be present on the page", () => {
-    cy.get("h3.a-size-base-plus.a-text-bold").contains("About this item").should("be.visible")
-    .then($element => {
-        cy.wrap($element).next('ul').each($elem => {
-           console.log(cy.wrap($elem).find("span.a-list-item").text());
-        })
-    })
+    LandingPage.confirmAboutItem();
 })
 
