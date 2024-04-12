@@ -1,11 +1,11 @@
 class LandingPage {
      static enterURL(){
-        cy.visit("https://www.amazon.com")
+        cy.visit("/");
     }
 
-    static extractPrice(text){
-      return Number(text.substr(1).replace(",",""))
-    }
+   //  static extractPrice(text){
+   //    return Number(text.substr(1).replace(",",""))
+   //  }
 
     static clickHamburgerMenu(){
       cy.get('div > a[href^="\/ref"]').first().click();
@@ -23,6 +23,7 @@ class LandingPage {
         cy.get('ul.hmenu-visible > li:nth-child(15) > a.hmenu-item').contains('Tablet Accessories').click({force:true});
         }
 
+
         static checkJETechBox(){
          cy.wait(10000);
               cy.get("span.a-size-base").contains("JETech").then(($hah) => {
@@ -30,7 +31,7 @@ class LandingPage {
            })
         }
 
-    static selectNewest(){
+    static sortByNewestArrival(){
        cy.get('select#s-result-sort-select').select('Newest Arrivals', {force:true});   
     }
 
@@ -38,7 +39,6 @@ class LandingPage {
        cy.get('span.a-price > span.a-offscreen').then($spanObjects => {
          let lowestPrice = Number($spanObjects[0].textContent.substr(1).replace(",",""));
          let lowestIndex = 0;
-
 
          $spanObjects.each(
             function(index,item){
@@ -56,13 +56,17 @@ class LandingPage {
 
 
    static switchWindow(){
-      cy.visit(cy.url)
-   }
+      cy.window().then(win => {
+         cy.location().then(loc=> {
+         win.open(loc.href, '_blank'); 
+         })
+       })
+        }
 
 static confirmAboutItem(){
    cy.get("h1.a-size-base-plus.a-text-bold").contains("About this item").should("be.visible")
     .then($element => {
-        cy.wrap($element).next('ul').find("li").each((item,index) => {
+        cy.wrap($element).next('ul').find("li").each((item) => {
          console.log(item[0].firstChild.textContent);
         })
     })
