@@ -59,7 +59,14 @@ class LandingPage {
       cy.visit(cy.url)
    }
 
-
+static confirmAboutItem(){
+   cy.get("h1.a-size-base-plus.a-text-bold").contains("About this item").should("be.visible")
+    .then($element => {
+        cy.wrap($element).next('ul').find("li").each((item,index) => {
+         console.log(item[0].firstChild.textContent);
+        })
+    })
+}
 }
 
 
