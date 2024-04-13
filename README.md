@@ -14,7 +14,7 @@ To run this project
     - Run "npm run test:chrome"
 
    ### To run the test on firefox browser -
-    - Run "npm run test:chrome"
+    - Run "npm run test:firefox"
 
 
    **Note** -
