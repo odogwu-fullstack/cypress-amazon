@@ -1,22 +1,23 @@
 {
-  "name": "cypress-amazon",
+  "name": "cypress-amazon-tsc",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open"
+    "dev": "npx cypress open",
+    "test": "npx cypress run",
+    "test:chrome": "npx cypress run --headed --browser chrome",
+    "test:firefox": "npx cypress run --headed --browser firefox"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "cypress": "^13.7.2",
-    "cypress-cucumber-preprocessor": "^4.3.1"
-  },
   "dependencies": {
-  },
-  "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": false,
-    "step_definitions": "cypress/e2e/cucumber/Tests"
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.3",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "cypress": "^13.7.3",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-on-fix": "^1.0.2",
+    "typescript": "^5.4.5"
   }
 }

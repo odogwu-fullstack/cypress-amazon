@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
-const {Given, When, Then, And} = require("cypress-cucumber-preprocessor/steps")
-const LandingPage = require("../../Pages/Landing/landing.cy");
+import {Given, When, Then} from "@badeball/cypress-cucumber-preprocessor"
+import 'cypress-mochawesome-reporter/cucumberSupport';
+import LandingPage from "../pages/landingpage"
 
 Given("I navigate to the Amazon landing page", () => {
 LandingPage.enterURL();
@@ -8,24 +9,23 @@ LandingPage.enterURL();
 When("I Click on the hamburger icon on the top left", () => {
 LandingPage.clickHamburgerMenu();
 });
-And("Click on the Computer's link item", () => {
+When("Click on the Computer's link item", () => {
 LandingPage.clickComputersLinkItem();
 });
-And("Click on the Tablet Accessories's link item", () => {
+When("Click on the Tablet Accessories's link item", () => {
 LandingPage.clickTabletAccesoriesLinkItem();
 });
-And("Check The JETech checkbox", () => {
+When("Check The JETech checkbox", () => {
     // This step is indeterminate as the JETtech checkbox does not always show when the page loads and this could stop the test
-
 // LandingPage.checkJETechBox();
 })
-And("Click on the Newest Arrivals option", () => {
+When("Click on the Newest Arrivals option", () => {
 LandingPage.sortByNewestArrival();
 });
-And("Click on the Lowest Priced item", () => {
+When("Click on the Lowest Priced item", () => {
     LandingPage.selectLowestPricedItem();
 });
-And("Switch Window", () => {
+When("Switch Window", () => {
     LandingPage.switchWindow();
 })
 Then("'About this Item' section should be present on the page", () => {

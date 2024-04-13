@@ -1,0 +1,12 @@
+{
+    "module": "commonjs",
+    "preserveValueImports": false,
+    "compilerOptions": {
+      "target": "es5",
+      "lib": ["es5", "dom"],
+      "types": ["cypress", "node"],
+      "esModuleInterop": true,
+      "module": "nodenext"
+    },
+    "include": ["**/*.ts"]
+  }
