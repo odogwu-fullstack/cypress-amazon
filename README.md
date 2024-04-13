@@ -1,6 +1,6 @@
-cypress-amazon_2
-Requirements -
-   Nodejs Runtime version 16 and higher
+#cypress-amazon_2 -
+##Requirements -
+   - Nodejs Runtime version 16 and higher
 
 
 To run this project
