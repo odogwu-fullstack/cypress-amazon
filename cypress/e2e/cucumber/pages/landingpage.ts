@@ -3,29 +3,23 @@ class LandingPage {
        cy.visit("/");
    }
 
-  //  static extractPrice(text){
-  //    return Number(text.substr(1).replace(",",""))
-  //  }
-
    public static clickHamburgerMenu(){
      cy.get('div > a[href^="\/ref"]').first().click();
-        cy.wait(1000);
+     cy.wait(1000)
         cy.get("#nav-hamburger-menu").click();
    }
 
     public static clickComputersLinkItem(){
-     cy.wait(3000);
+      cy.wait(3000)
        cy.get('.hmenu-visible > li:nth-child(8)').click({scrollBehavior:false});
        }
 
     public static clickTabletAccesoriesLinkItem(){
-     cy.wait(2000);
        cy.get('ul.hmenu-visible > li:nth-child(15) > a.hmenu-item').contains('Tablet Accessories').click({force:true});
        }
 
 
        public static checkJETechBox(){
-        cy.wait(10000);
              cy.get("span.a-size-base").contains("JETech").then(($hah) => {
             cy.wrap($hah).prev().find("label").find("input[type=checkbox]").check({force:true});
           })
