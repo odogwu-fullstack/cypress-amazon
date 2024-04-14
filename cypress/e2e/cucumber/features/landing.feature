@@ -1,4 +1,4 @@
-Feature: I want to filter Tablet Accessories from the landing page
+Feature: I want to access the lowest priced Tablet Accessory from the landing page
 
   Background: Navigate to the Website
     Given I navigate to the Amazon landing page
